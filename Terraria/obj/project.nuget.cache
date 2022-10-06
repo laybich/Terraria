@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Lbvmaf0pwWaMEseKYZN6NNuWDIDInROsjkC8PRTq2CHy2SOpxRY1Fplb/3DB+4C/jW7WFBWtYG87SYu/XCPfpQ==",
+  "dgSpecHash": "HsImgt4BPJuuTOwUsngsDViagrjC7DjIDMGG0+k71CFPq0FC2gZSKxnOOYGEnCpPYy8xgJad0zo/8E9U3S6zdQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\super\\source\\repos\\Terraria\\Terraria\\Terraria.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\super\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
+    "C:\\Users\\super\\.nuget\\packages\\sfml.audio\\2.5.0\\sfml.audio.2.5.0.nupkg.sha512",
+    "C:\\Users\\super\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",
+    "C:\\Users\\super\\.nuget\\packages\\sfml.net\\2.5.0\\sfml.net.2.5.0.nupkg.sha512",
+    "C:\\Users\\super\\.nuget\\packages\\sfml.system\\2.5.0\\sfml.system.2.5.0.nupkg.sha512",
+    "C:\\Users\\super\\.nuget\\packages\\sfml.window\\2.5.0\\sfml.window.2.5.0.nupkg.sha512"
+  ],
   "logs": []
 }
