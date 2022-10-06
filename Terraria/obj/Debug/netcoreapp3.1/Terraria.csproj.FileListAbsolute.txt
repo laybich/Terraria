@@ -1,0 +1,14 @@
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.exe
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.deps.json
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.runtimeconfig.json
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.runtimeconfig.dev.json
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.dll
+C:\Users\super\source\repos\Terraria\Terraria\bin\Debug\netcoreapp3.1\Terraria.pdb
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.csproj.AssemblyReference.cache
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.AssemblyInfoInputs.cache
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.AssemblyInfo.cs
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.csproj.CoreCompileInputs.cache
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.dll
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.pdb
+C:\Users\super\source\repos\Terraria\Terraria\obj\Debug\netcoreapp3.1\Terraria.genruntimeconfig.cache
