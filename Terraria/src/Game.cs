@@ -5,21 +5,22 @@ namespace Terraria
 {
     class Game
     {
-        Tile tile;
+        World world;
 
         public Game()
         {
-            tile = new Tile();
+            world = new World();
+            world.GenerateWorld();
         }
 
         public void Update()
         {
-            tile.UpdateView();
+            world.Update();
         }
 
         public void Draw()
         {
-            Program.Window.Draw(tile);
+            Program.Window.Draw(world);
         }
     }
 }
