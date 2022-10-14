@@ -13,9 +13,10 @@ namespace Terraria
     class Tile : Transformable, Drawable
     {
         public const int TILE_SIZE = 16;
+
+        public SpriteSheet SpriteSheet { get; set; }
         public TileType type = TileType.GROUND;
         public RectangleShape rectShape;
-        Texture texture;
 
         public Tile(TileType type)
         {
@@ -26,16 +27,16 @@ namespace Terraria
             switch(type)
             {
                 case TileType.GROUND:
-                    texture = new Texture("Content\\Textures\\Tiles_0.png");
+                    SpriteSheet = Content.ssTileGround;
                     break;
 
                 case TileType.GRASS:
-                    texture = new Texture("Content\\Textures\\Tiles_1.png");
+                    SpriteSheet = Content.ssTileGrass;
                     break;
             }
 
-            rectShape.Texture = texture;
-            rectShape.TextureRect = new IntRect(0, 0, TILE_SIZE, TILE_SIZE);
+            rectShape.Texture = SpriteSheet.Texture;
+            rectShape.TextureRect = SpriteSheet.GetTextureRect(1, 1);
 
             UpdateView();
         }

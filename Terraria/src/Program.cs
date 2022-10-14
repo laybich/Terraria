@@ -21,6 +21,7 @@ namespace Terraria
             Window.KeyPressed += Window_Pressed;
             Window.KeyReleased += Window_Realesed;
 
+            Content.Load();
             Game = new Game();
             Clock clock = new Clock();
 
