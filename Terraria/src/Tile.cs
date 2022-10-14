@@ -18,9 +18,55 @@ namespace Terraria
         public TileType type = TileType.GROUND;
         public RectangleShape rectShape;
 
-        public Tile(TileType type)
+        Tile upTile = null;
+        Tile downTile = null;
+        Tile leftTile = null;
+        Tile rightTile = null;
+
+        public Tile UpTile {
+            set { upTile = value; UpdateView(); }
+            get { return upTile; }
+        }
+
+        public Tile DownTile {
+            set { downTile = value; UpdateView(); }
+            get { return downTile; }
+        }
+
+        public Tile LeftTile {
+            set { leftTile = value; UpdateView(); }
+            get { return leftTile; }
+        }
+
+        public Tile RightTile {
+            set { rightTile = value; UpdateView(); }
+            get { return rightTile; }
+        }
+
+        public Tile(TileType type, Tile upTile, Tile downTile, Tile leftTile, Tile rightTile)
         {
             this.type = type;
+
+            if (upTile != null)
+            {
+                this.upTile = upTile;
+                this.upTile.DownTile = this;
+            }
+            if (downTile != null)
+            {
+                this.downTile = downTile;
+                this.downTile.UpTile = this;
+            }
+            if (leftTile != null)
+            {
+                this.leftTile = leftTile;
+                this.leftTile.RightTile = this;
+            }
+            if (rightTile != null)
+            {
+                this.rightTile = rightTile;
+                this.rightTile.LeftTile = this;
+            }
 
             rectShape = new RectangleShape(new Vector2f(TILE_SIZE, TILE_SIZE));
 
@@ -36,14 +82,37 @@ namespace Terraria
             }
 
             rectShape.Texture = SpriteSheet.Texture;
-            rectShape.TextureRect = SpriteSheet.GetTextureRect(1, 1);
 
             UpdateView();
         }
 
         public void UpdateView()
         {
+            int i = World.Rand.Next(0, 3);
 
+            if (upTile != null && downTile != null && leftTile != null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i, 1);
+
+            else if (upTile == null && downTile == null && leftTile == null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(9 + i, 3);
+
+            else if (upTile == null && downTile != null && leftTile != null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i, 0);
+            else if (upTile != null && downTile == null && leftTile != null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i, 2);
+            else if (upTile != null && downTile != null && leftTile == null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(0, i);
+            else if (upTile != null && downTile != null && leftTile != null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(4, i);
+
+            else if (upTile == null && downTile != null && leftTile == null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(0 + i * 2, 3);
+            else if (upTile == null && downTile != null && leftTile != null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i * 2, 3);
+            else if (upTile != null && downTile == null && leftTile == null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(0 + i * 2, 4);
+            else if (upTile != null && downTile == null && leftTile != null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i * 2, 4);
         }
 
         public void Draw(RenderTarget target, RenderStates states)

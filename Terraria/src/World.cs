@@ -43,6 +43,31 @@ namespace Terraria
 
             for (int i = 0; i < WORLD_WIDTH; i++)
             {
+                float sum = arr[i];
+                int count = 1;
+
+                for (int k = 1; k <= 5; k++)
+                {
+                    int i1 = i - k;
+                    int i2 = i + k;
+
+                    if (i1 > 0)
+                    {
+                        sum += arr[i1];
+                        count++;
+                    }
+                    if (i2 < WORLD_WIDTH)
+                    {
+                        sum += arr[i2];
+                        count++;
+                    }
+                }
+
+                arr[i] = (int)(sum / count);
+            }
+
+            for (int i = 0; i < WORLD_WIDTH; i++)
+            {
                 SetTile(TileType.GRASS, i, arr[i]);
 
                 for (int j = arr[i] + 1; j < WORLD_HEIGHT; j++)
@@ -55,9 +80,20 @@ namespace Terraria
             if (!(i >= 0 && j >= 0 && i < WORLD_WIDTH && j < WORLD_HEIGHT))
                 return;
 
-            var tile = new Tile(type);
+            Tile upTile = GetTile(i, j - 1);
+            Tile downTile = GetTile(i, j + 1);
+            Tile leftTile = GetTile(i - 1, j);
+            Tile rightTile = GetTile(i + 1, j);
+
+            var tile = new Tile(type, upTile, downTile, leftTile, rightTile);
             tile.rectShape.Position = new Vector2f(i * Tile.TILE_SIZE, j * Tile.TILE_SIZE) + Position;
             tiles[i, j] = tile;
+        }
+
+        public Tile GetTile(int i, int j)
+        {
+            if (i >= 0 && j >= 0 && i < WORLD_WIDTH && j < WORLD_HEIGHT) return tiles[i, j];
+            else return null;
         }
 
         public void Update()
