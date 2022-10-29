@@ -67,12 +67,16 @@ namespace Terraria
                 arr[i] = (int)(sum / count);
             }
 
+            // Tile building
             for (int i = 0; i < WORLD_WIDTH; i++)
             {
                 SetTile(TileType.GRASS, i, arr[i]);
 
                 for (int j = arr[i] + 1; j < WORLD_HEIGHT; j++)
                     SetTile(TileType.GROUND, i, j);
+
+                for (int j = arr[i] + 8; j < WORLD_HEIGHT; j++)
+                    SetTile(TileType.STONE, i, j);
             }
         }
 

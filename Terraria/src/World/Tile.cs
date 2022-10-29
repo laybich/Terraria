@@ -7,6 +7,7 @@ namespace Terraria
     {
         NONE,
         GROUND,
+        STONE,
         GRASS
     }
 
@@ -78,6 +79,10 @@ namespace Terraria
 
                 case TileType.GRASS:
                     SpriteSheet = Content.ssTileGrass;
+                    break;
+
+                case TileType.STONE:
+                    SpriteSheet = Content.ssTileStone;
                     break;
             }
 

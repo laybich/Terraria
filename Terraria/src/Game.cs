@@ -8,6 +8,7 @@ namespace Terraria
 {
     class Game
     {
+        public Player Player { get; private set; }
         World world;
         List<NpcSlime> slimes = new List<NpcSlime>();
 
@@ -15,6 +16,10 @@ namespace Terraria
         {
             world = new World();
             world.GenerateWorld();
+
+            Player = new Player(world);
+            Player.StartPosition = new Vector2f(300, 150);
+            Player.Spawn();
 
             for (int i = 0; i < 5; i++)
             {
@@ -30,6 +35,7 @@ namespace Terraria
         public void Update()
         {
             world.Update();
+            Player.Update();
 
             foreach (var s in slimes)
                 s.Update();
@@ -38,6 +44,7 @@ namespace Terraria
         public void Draw()
         {
             Program.Window.Draw(world);
+            Program.Window.Draw(Player);
 
             foreach (var s in slimes)
                 Program.Window.Draw(s);
