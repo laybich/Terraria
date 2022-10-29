@@ -6,12 +6,13 @@ namespace Terraria.Npc
     class NpcSlime : NPC
     {
         SpriteSheet spriteSheet;
+        float waitTimer = 0f;
 
         public NpcSlime(World world) : base(world)
         {
             spriteSheet = Content.ssNpcSlime;
 
-            rect = new RectangleShape(new Vector2f(30, 40));
+            rect = new RectangleShape(new Vector2f(spriteSheet.SubWidth / 1.5f, spriteSheet.SubHeight / 1.5f));
             rect.Origin = new Vector2f(rect.Size.X / 2, 0);
             rect.FillColor = new Color(0, 255, 0, 200);
 
@@ -19,10 +20,33 @@ namespace Terraria.Npc
             rect.TextureRect = spriteSheet.GetTextureRect(0, 0);
         }
 
+        public override void OnKill()
+        {
+            Spawn();
+        }
+
+        public override void OnWallCollided()
+        {
+            Direction *= -1;
+            velocity = new Vector2f(-velocity.X * 0.8f, velocity.Y);
+        }
+
         public override void UpdateNPC()
         {
             if (!isFly)
             {
+
+                if (waitTimer >= World.Rand.Next(1, 5))
+                {
+                    velocity = GetJumpVelocity();
+                    waitTimer = 0;
+                }
+                else
+                {
+                    waitTimer += 0.05f;
+                    velocity.X = 0;
+                }
+
                 rect.TextureRect = spriteSheet.GetTextureRect(0, 0);
             }
             else
@@ -31,6 +55,11 @@ namespace Terraria.Npc
 
         public override void DrawNPC(RenderTarget target, RenderStates states)
         {
+        }
+
+        public virtual Vector2f GetJumpVelocity()
+        {
+            return new Vector2f(Direction * World.Rand.Next(1, 15), -World.Rand.Next(8, 15));
         }
     }
 }

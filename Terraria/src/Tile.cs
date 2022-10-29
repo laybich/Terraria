@@ -119,7 +119,7 @@ namespace Terraria
         {
             states.Transform *= Transform;
 
-            target.Draw(rectShape);
+            target.Draw(rectShape, states);
         }
 
         public FloatRect GetFloatRect()

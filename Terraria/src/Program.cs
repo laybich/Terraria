@@ -2,6 +2,7 @@
 using SFML.System;
 using SFML.Window;
 using System;
+using System.Collections.Generic;
 
 namespace Terraria
 {
@@ -10,6 +11,7 @@ namespace Terraria
         public static RenderWindow Window { private set; get; }
         public static Game Game { private set; get; }
         public static float Delta { private set; get; }
+        public static Dictionary<Keyboard.Key, bool> keys = new Dictionary<Keyboard.Key, bool>();
 
         static void Main(string[] args)
         {
@@ -20,6 +22,8 @@ namespace Terraria
             Window.Resized += Window_Resized;
             Window.KeyPressed += Window_Pressed;
             Window.KeyReleased += Window_Realesed;
+
+            keys[Keyboard.Key.F3] = false;
 
             Content.Load();
             Game = new Game();
@@ -50,15 +54,24 @@ namespace Terraria
 
         private static void Window_Pressed(object sender, KeyEventArgs e)
         {
+            // Exit game
             if (e.Code == Keyboard.Key.Escape)
             {
                 Window.Close();
+            }
+            if (e.Code == Keyboard.Key.F3 != keys[Keyboard.Key.F3])
+            {
+                DebugRender.Enabled = !DebugRender.Enabled;
+                keys[e.Code] = true;
             }
         }
 
         private static void Window_Realesed(object sender, KeyEventArgs e)
         {
-
+            if (e.Code == Keyboard.Key.F3)
+            {
+                keys[Keyboard.Key.F3] = false;
+            }
         }
     }
 }

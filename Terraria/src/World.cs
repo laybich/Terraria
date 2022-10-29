@@ -1,6 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.System;
 using System;
+using System.Collections.Generic;
 
 namespace Terraria
 {
@@ -26,7 +27,6 @@ namespace Terraria
             int groundLevelMin = groundLevelMax + Rand.Next(10, 20);
 
             int[] arr = new int[WORLD_WIDTH];
-
             for (int i = 0; i < WORLD_WIDTH; i++)
             {
                 int dir = Rand.Next(0, 2) == 1 ? 1 : -1;
@@ -41,6 +41,7 @@ namespace Terraria
                 else arr[i] = groundLevelMin;
             }
 
+            // Smoothing
             for (int i = 0; i < WORLD_WIDTH; i++)
             {
                 float sum = arr[i];
@@ -85,9 +86,40 @@ namespace Terraria
             Tile leftTile = GetTile(i - 1, j);
             Tile rightTile = GetTile(i + 1, j);
 
-            var tile = new Tile(type, upTile, downTile, leftTile, rightTile);
-            tile.rectShape.Position = new Vector2f(i * Tile.TILE_SIZE, j * Tile.TILE_SIZE) + Position;
-            tiles[i, j] = tile;
+            if (type != TileType.NONE)
+            {
+                var tile = new Tile(type, upTile, downTile, leftTile, rightTile);
+                tile.Position = new Vector2f(i * Tile.TILE_SIZE, j * Tile.TILE_SIZE) + Position;
+                tiles[i, j] = tile;
+            }
+            else
+            {
+                var tile = tiles[i, j];
+
+                tiles[i, j] = null;
+
+                if (upTile != null) upTile.DownTile = null;
+                if (downTile != null) downTile.UpTile = null;
+                if (leftTile != null) leftTile.RightTile = null;
+                if (rightTile != null) rightTile.LeftTile = null;
+            }
+        }
+
+        public Tile GetTileByWorldPos(float x, float y)
+        {
+            int i = (int)(x / Tile.TILE_SIZE);
+            int j = (int)(y / Tile.TILE_SIZE);
+            return GetTile(i, j);
+        }
+
+        public Tile GetTileByWorldPos(Vector2f pos)
+        {
+            return GetTileByWorldPos(pos.X, pos.Y);
+        }
+
+        public Tile GetTileByWorldPos(Vector2i pos)
+        {
+            return GetTileByWorldPos(pos.X, pos.Y);
         }
 
         public Tile GetTile(int i, int j)
