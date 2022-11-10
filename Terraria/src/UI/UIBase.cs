@@ -2,7 +2,6 @@
 using SFML.System;
 using SFML.Window;
 using System.Collections.Generic;
-using System.Security.Policy;
 
 namespace Terraria.UI
 {

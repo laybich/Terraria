@@ -1,5 +1,6 @@
 ﻿using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
 namespace Terraria.UI
 {
@@ -13,6 +14,10 @@ namespace Terraria.UI
         {
             rectShape = new RectangleShape(new Vector2f(Program.Window.Size.X, Program.Window.Size.Y));
             rectShape.Texture = Content.texShplash;
+        }
+
+        public override void UpdateOver(Vector2i mousePos)
+        {
         }
 
         public override void Update()
