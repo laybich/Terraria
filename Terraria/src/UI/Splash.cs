@@ -1,14 +1,11 @@
 ﻿using SFML.Graphics;
 using SFML.System;
-using System;
 
 namespace Terraria.UI
 {
-    class Splash : Transformable, Drawable
+    class Splash : UIBase
     {
         public static bool ShowSplash = true;
-        private RectangleShape rectShape;
-        private SpriteSheet spriteSheet;
         private int splashCounter = 0;
         byte color = 0;
 
@@ -18,7 +15,7 @@ namespace Terraria.UI
             rectShape.Texture = Content.texShplash;
         }
 
-        public void Update()
+        public override void Update()
         {
             splashCounter++;
             if (splashCounter <= 0x4b) color = (byte)((float)splashCounter / 0x4bf * 0xfff);
@@ -27,13 +24,18 @@ namespace Terraria.UI
             else ShowSplash = false;
 
             rectShape.FillColor = new Color(color, color, color);
+
+            base.Update();
         }
 
-        public void Draw(RenderTarget target, RenderStates states)
+        public override void Draw(RenderTarget target, RenderStates states)
         {
-            states.Transform *= Transform;
+            if (ShowSplash)
+            {
+                states.Transform *= Transform;
 
-            target.Draw(rectShape);
+                target.Draw(rectShape);
+            }
         }
     }
 }

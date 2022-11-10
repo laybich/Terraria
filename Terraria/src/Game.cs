@@ -35,6 +35,7 @@ namespace Terraria
 
             Player.Invertory = new UIInvertory();
             UIManager.AddControl(Player.Invertory);
+            UIManager.AddControl(splash);
         }
 
         public void Update()
@@ -58,26 +59,19 @@ namespace Terraria
 
         public void Draw()
         {
-            if (Splash.ShowSplash)
-            {
-                Program.Window.Draw(splash);
-            }
-            else
-            {
-                // Draw world
-                Program.Window.Draw(world);
-                Program.Window.Draw(Player);
+            // Draw world
+            Program.Window.Draw(world);
+            Program.Window.Draw(Player);
 
-                // Draw slimes
-                foreach (var s in slimes)
-                    Program.Window.Draw(s);
+            // Draw slimes
+            foreach (var s in slimes)
+                Program.Window.Draw(s);
 
-                // Debug draw
-                DebugRender.Draw(Program.Window);
+            // Debug draw
+            DebugRender.Draw(Program.Window);
 
-                // Draw UI
-                UIManager.Draw();
-            }
+            // Draw UI
+            UIManager.Draw();
         }
     }
 }
