@@ -1,19 +1,21 @@
 ﻿using SFML.System;
 using Terraria.Npc;
+using Terraria.UI;
 using System.Collections.Generic;
-using SFML.Window;
-using System.Linq;
 
 namespace Terraria
 {
     class Game
     {
         public Player Player { get; private set; }
-        World world;
         List<NpcSlime> slimes = new List<NpcSlime>();
+        World world;
+        Splash splash;
 
         public Game()
         {
+            splash = new Splash();
+
             world = new World();
             world.GenerateWorld();
 
@@ -30,26 +32,52 @@ namespace Terraria
 
                 slimes.Add(s);
             }
+
+            Player.Invertory = new UIInvertory();
+            UIManager.AddControl(Player.Invertory);
         }
 
         public void Update()
         {
-            world.Update();
-            Player.Update();
+            if (Splash.ShowSplash)
+            {
+                splash.Update();
+            }
+            else
+            {
+                world.Update();
+                Player.Update();
 
-            foreach (var s in slimes)
-                s.Update();
+                foreach (var s in slimes)
+                    s.Update();
+
+                UIManager.UpdateOver();
+                UIManager.Update();
+            }
         }
 
         public void Draw()
         {
-            Program.Window.Draw(world);
-            Program.Window.Draw(Player);
+            if (Splash.ShowSplash)
+            {
+                Program.Window.Draw(splash);
+            }
+            else
+            {
+                // Draw world
+                Program.Window.Draw(world);
+                Program.Window.Draw(Player);
 
-            foreach (var s in slimes)
-                Program.Window.Draw(s);
+                // Draw slimes
+                foreach (var s in slimes)
+                    Program.Window.Draw(s);
 
-            DebugRender.Draw(Program.Window);
+                // Debug draw
+                DebugRender.Draw(Program.Window);
+
+                // Draw UI
+                UIManager.Draw();
+            }
         }
     }
 }

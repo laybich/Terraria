@@ -6,6 +6,11 @@ namespace Terraria
     {
         public const string CONTENT_DIR = "Content\\";
 
+        // UI
+        public static Texture texShplash;
+        public static Texture texUIInvertoryBack;
+        public static Font font;
+
         // Terrain
         public static SpriteSheet ssTileGround;
         public static SpriteSheet ssTileStone;
@@ -25,6 +30,13 @@ namespace Terraria
 
         public static void Load()
         {
+            // UI
+            texShplash = new Texture(CONTENT_DIR + "Textures\\splash.png");
+            texUIInvertoryBack = new Texture(CONTENT_DIR + "Textures\\ui\\Inventory_Back.png");
+
+            // Font
+            font = new Font(CONTENT_DIR + "Fonts\\brushtype-normal.ttf");
+
             // Terrain
             ssTileGround = new SpriteSheet(Tile.TILE_SIZE, Tile.TILE_SIZE, false, 1, new Texture(CONTENT_DIR + "Textures\\Tiles_0.png"));
             ssTileStone = new SpriteSheet(Tile.TILE_SIZE, Tile.TILE_SIZE, false, 1, new Texture(CONTENT_DIR + "Textures\\Tiles_1.png"));

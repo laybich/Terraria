@@ -68,9 +68,51 @@ namespace Terraria
 
         private static void Window_Realesed(object sender, KeyEventArgs e)
         {
-            if (e.Code == Keyboard.Key.F3)
+            switch (e.Code)
+            {
+            case Keyboard.Key.F3:
             {
                 keys[Keyboard.Key.F3] = false;
+                break;
+            }
+
+            case Keyboard.Key.Num1:
+            case Keyboard.Key.Num2:
+            case Keyboard.Key.Num3:
+            case Keyboard.Key.Num4:
+            case Keyboard.Key.Num5:
+            case Keyboard.Key.Num6:
+            case Keyboard.Key.Num7:
+            case Keyboard.Key.Num8:
+            case Keyboard.Key.Num9:
+            case Keyboard.Key.Num0:
+            {
+                for (int i = 0; i < Game.Player.Invertory.cells.Count; i++)
+                    Game.Player.Invertory.cells[i].IsSelected = false;
+
+                if (e.Code == Keyboard.Key.Num1)
+                    Game.Player.Invertory.cells[0].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num2)
+                    Game.Player.Invertory.cells[1].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num3)
+                    Game.Player.Invertory.cells[2].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num4)
+                    Game.Player.Invertory.cells[3].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num5)
+                    Game.Player.Invertory.cells[4].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num6)
+                    Game.Player.Invertory.cells[5].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num7)
+                    Game.Player.Invertory.cells[6].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num8)
+                    Game.Player.Invertory.cells[7].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num9)
+                    Game.Player.Invertory.cells[8].IsSelected = true;
+                else if (e.Code == Keyboard.Key.Num0)
+                    Game.Player.Invertory.cells[9].IsSelected = true;
+
+                break;
+            }
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
+using Terraria.UI;
 
 namespace Terraria.Npc
 {
@@ -9,12 +10,16 @@ namespace Terraria.Npc
         public const float PLAYER_MOVE_SPEED = 4f;
         public const float PLAYER_MOVE_SPEED_ACCELERATION = 0.2f;
 
-
+        // Colors
         public Color HairColor = new Color(255, 150, 0);
         public Color BodyColor = new Color(255, 209, 186);
         public Color ShirtColor = new Color(205, 255, 0);
         public Color LegsColor = new Color(10, 76, 135);
 
+        // UI
+        public UIInvertory Invertory;
+
+        // Sprites with animation
         AnimSprite asHair;
         AnimSprite asHead;
         AnimSprite asShirt;
@@ -225,29 +230,35 @@ namespace Terraria.Npc
         {
             updateMovement();
 
-            var mousePos = Mouse.GetPosition(Program.Window);
-            var tile = world.GetTileByWorldPos(mousePos);
-
-            if (tile != null)
+            if (UIManager.Over == null && UIManager.Drag == null)
             {
-                FloatRect tileRect = tile.GetFloatRect();
-                DebugRender.AddRectangle(tileRect, Color.Green);
+                var mousePos = Mouse.GetPosition(Program.Window);
+                var tile = world.GetTileByWorldPos(mousePos);
 
-                if (Mouse.IsButtonPressed(Mouse.Button.Left))
+                // Update over tile
+                if (tile != null)
+                {
+                    FloatRect tileRect = tile.GetFloatRect();
+                    DebugRender.AddRectangle(tileRect, Color.Green);
+
+                    // Remove tile
+                    if (Mouse.IsButtonPressed(Mouse.Button.Left))
+                    {
+                        int i = (int)(mousePos.X / Tile.TILE_SIZE);
+                        int j = (int)(mousePos.Y / Tile.TILE_SIZE);
+                        world.SetTile(TileType.NONE, i, j);
+                    }
+                }
+
+                // Set tile
+                if (Mouse.IsButtonPressed(Mouse.Button.Right))
                 {
                     int i = (int)(mousePos.X / Tile.TILE_SIZE);
                     int j = (int)(mousePos.Y / Tile.TILE_SIZE);
-                    world.SetTile(TileType.NONE, i, j);
+
+                    if (world.GetTile(i, j) == null)
+                        world.SetTile(TileType.GROUND, i, j);
                 }
-            }
-
-            if (Mouse.IsButtonPressed(Mouse.Button.Right))
-            {
-                int i = (int)(mousePos.X / Tile.TILE_SIZE);
-                int j = (int)(mousePos.Y / Tile.TILE_SIZE);
-
-                if (world.GetTile(i, j) == null)
-                    world.SetTile(TileType.GROUND, i, j);
             }
         }
 

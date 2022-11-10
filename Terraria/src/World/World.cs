@@ -1,4 +1,5 @@
-﻿using SFML.Graphics;
+﻿using Terraria.Items;
+using SFML.Graphics;
 using SFML.System;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace Terraria
         public static Random Rand { private set; get; }
 
         Tile[,] tiles;
+
+        List<Item> items = new List<Item>();
 
         public World()
         {
@@ -99,6 +102,12 @@ namespace Terraria
             else
             {
                 var tile = tiles[i, j];
+                if (tile != null)
+                {
+                    var item = new ItemTile(this, InfoItem.ItemGround);
+                    item.Position = tile.Position;
+                    items.Add(item);
+                }
 
                 tiles[i, j] = null;
 
@@ -134,7 +143,17 @@ namespace Terraria
 
         public void Update()
         {
-
+            int i = 0;
+            while (i < items.Count)
+            {
+                if (items[i].isDestroyed)
+                    items.RemoveAt(i);
+                else
+                {
+                    items[i].Update();
+                    i++;
+                }
+            }
         }
 
         // Draw world
@@ -147,6 +166,10 @@ namespace Terraria
                     if (tiles[i, j] != null)
                         target.Draw(tiles[i, j]);
                 }
+
+            // Draw items
+            foreach (var item in items)
+                target.Draw(item);
         }
     }
 }
