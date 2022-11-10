@@ -95,12 +95,15 @@ namespace Terraria
         {
             int i = World.Rand.Next(0, 3);
 
+            // all neighbors exist
             if (upTile != null && downTile != null && leftTile != null && rightTile != null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i, 1);
 
+            // no neighbor exists
             else if (upTile == null && downTile == null && leftTile == null && rightTile == null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(9 + i, 3);
 
+            // there is no (one) neighbor
             else if (upTile == null && downTile != null && leftTile != null && rightTile != null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i, 0);
             else if (upTile != null && downTile == null && leftTile != null && rightTile != null)
@@ -110,6 +113,7 @@ namespace Terraria
             else if (upTile != null && downTile != null && leftTile != null && rightTile == null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(4, i);
 
+            // there are two neighbors
             else if (upTile == null && downTile != null && leftTile == null && rightTile != null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(0 + i * 2, 3);
             else if (upTile == null && downTile != null && leftTile != null && rightTile == null)
@@ -118,6 +122,20 @@ namespace Terraria
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(0 + i * 2, 4);
             else if (upTile != null && downTile == null && leftTile != null && rightTile == null)
                 rectShape.TextureRect = SpriteSheet.GetTextureRect(1 + i * 2, 4);
+            else if (upTile == null && downTile == null && leftTile != null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(6 + i, 4);
+            else if (upTile != null && downTile != null && leftTile == null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(5, 0 + i);
+
+            // there is one neighbor
+            else if (upTile != null && downTile == null && leftTile == null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(6 + i, 3);
+            else if (upTile == null && downTile != null && leftTile == null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(6 + i, 0);
+            else if (upTile == null && downTile == null && leftTile != null && rightTile == null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(12, 0 + i);
+            else if (upTile == null && downTile == null && leftTile == null && rightTile != null)
+                rectShape.TextureRect = SpriteSheet.GetTextureRect(9, 0 + i);
         }
 
         public void Draw(RenderTarget target, RenderStates states)

@@ -151,12 +151,12 @@ namespace Terraria
                 else if (dir == DirectionType.Left)
                     pos = new Vector2f(rectTile.Left + rectTile.Width - 1, pos.Y);
                 else if (dir == DirectionType.Right)
-                    pos = new Vector2f(rectTile.Left - rectTile.Width + 1, pos.Y);
+                    pos = new Vector2f(rectTile.Left - rectNPC.Width + 1, pos.Y);
 
                 return true;
             }
 
-            return true;
+            return false;
         }
 
         public abstract void OnWallCollided();

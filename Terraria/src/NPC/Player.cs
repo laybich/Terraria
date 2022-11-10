@@ -36,6 +36,24 @@ namespace Terraria.Npc
             asHair.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
             ));
+            asHair.AddAnimation("run", new Animation(
+                new [] {
+                    new AnimationFrame(0, 0, 0.1f),
+                    new AnimationFrame(0, 1, 0.1f),
+                    new AnimationFrame(0, 2, 0.1f),
+                    new AnimationFrame(0, 3, 0.1f),
+                    new AnimationFrame(0, 4, 0.1f),
+                    new AnimationFrame(0, 5, 0.1f),
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                }
+            ));
 
             // Head
             asHead = new AnimSprite(Content.ssPlayerHead);
@@ -43,6 +61,24 @@ namespace Terraria.Npc
             asHead.Color = BodyColor;
             asHead.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
+            ));
+            asHead.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
             ));
 
             // Shirt
@@ -52,6 +88,24 @@ namespace Terraria.Npc
             asShirt.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
             ));
+            asShirt.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
+            ));
 
             // Undershirt
             asUndershirt = new AnimSprite(Content.ssPlayerUndershirt);
@@ -59,6 +113,24 @@ namespace Terraria.Npc
             asUndershirt.Color = ShirtColor;
             asUndershirt.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
+            ));
+            asUndershirt.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
             ));
 
             // Hands
@@ -68,6 +140,24 @@ namespace Terraria.Npc
             asHands.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
             ));
+            asHands.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
+            ));
 
             // Legs
             asLegs = new AnimSprite(Content.ssPlayerLegs);
@@ -76,6 +166,24 @@ namespace Terraria.Npc
             asLegs.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
             ));
+            asLegs.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
+            ));
 
             // Shoes
             asShoes = new AnimSprite(Content.ssPlayerShoes);
@@ -83,6 +191,24 @@ namespace Terraria.Npc
             asShoes.Color = Color.Black;
             asShoes.AddAnimation("idle", new Animation(
                 new[] { new AnimationFrame(0, 0, 0.1f) }
+            ));
+            asShoes.AddAnimation("run", new Animation(
+                new[] {
+                    new AnimationFrame(0, 6, 0.1f),
+                    new AnimationFrame(0, 7, 0.1f),
+                    new AnimationFrame(0, 8, 0.1f),
+                    new AnimationFrame(0, 9, 0.1f),
+                    new AnimationFrame(0, 10, 0.1f),
+                    new AnimationFrame(0, 11, 0.1f),
+                    new AnimationFrame(0, 12, 0.1f),
+                    new AnimationFrame(0, 13, 0.1f),
+                    new AnimationFrame(0, 14, 0.1f),
+                    new AnimationFrame(0, 15, 0.1f),
+                    new AnimationFrame(0, 16, 0.1f),
+                    new AnimationFrame(0, 17, 0.1f),
+                    new AnimationFrame(0, 18, 0.1f),
+                    new AnimationFrame(0, 19, 0.1f),
+                }
             ));
         }
 
@@ -97,7 +223,32 @@ namespace Terraria.Npc
 
         public override void UpdateNPC()
         {
-            
+            updateMovement();
+
+            var mousePos = Mouse.GetPosition(Program.Window);
+            var tile = world.GetTileByWorldPos(mousePos);
+
+            if (tile != null)
+            {
+                FloatRect tileRect = tile.GetFloatRect();
+                DebugRender.AddRectangle(tileRect, Color.Green);
+
+                if (Mouse.IsButtonPressed(Mouse.Button.Left))
+                {
+                    int i = (int)(mousePos.X / Tile.TILE_SIZE);
+                    int j = (int)(mousePos.Y / Tile.TILE_SIZE);
+                    world.SetTile(TileType.NONE, i, j);
+                }
+            }
+
+            if (Mouse.IsButtonPressed(Mouse.Button.Right))
+            {
+                int i = (int)(mousePos.X / Tile.TILE_SIZE);
+                int j = (int)(mousePos.Y / Tile.TILE_SIZE);
+
+                if (world.GetTile(i, j) == null)
+                    world.SetTile(TileType.GROUND, i, j);
+            }
         }
 
         public override void DrawNPC(RenderTarget target, RenderStates states)
@@ -113,15 +264,58 @@ namespace Terraria.Npc
 
         private void updateMovement()
         {
-            movement = new Vector2f();
+            bool isMoveLeft = Keyboard.IsKeyPressed(Keyboard.Key.A);
+            bool isMoveRight = Keyboard.IsKeyPressed(Keyboard.Key.D);
+            bool isMoveUp = Keyboard.IsKeyPressed(Keyboard.Key.Space);
 
-            asHair.Play("idle");
-            asHead.Play("idle");
-            asShirt.Play("idle");
-            asUndershirt.Play("idle");
-            asHands.Play("idle");
-            asLegs.Play("idle");
-            asShoes.Play("idle");
+            // Jump
+            if (isMoveUp && !isFly) velocity.Y = -10f;
+
+            if (isMoveLeft || isMoveRight)
+            {
+                if (isMoveLeft)
+                {
+                    if (movement.X > 0)
+                        movement.X = 0;
+
+                    movement.X -= PLAYER_MOVE_SPEED_ACCELERATION;
+                    Direction = -1;
+                }
+                else if (isMoveRight)
+                {
+                    if (movement.X < 0)
+                        movement.X = 0;
+
+                    movement.X += PLAYER_MOVE_SPEED_ACCELERATION;
+                    Direction = 1;
+                }
+
+                if (movement.X > PLAYER_MOVE_SPEED)
+                    movement.X = PLAYER_MOVE_SPEED;
+                else if (movement.X < -PLAYER_MOVE_SPEED)
+                    movement.X = -PLAYER_MOVE_SPEED;
+
+                // Animation
+                asHair.Play("run");
+                asHead.Play("run");
+                asShirt.Play("run");
+                asUndershirt.Play("run");
+                asHands.Play("run");
+                asLegs.Play("run");
+                asShoes.Play("run");
+            } else
+            {
+                movement = new Vector2f();
+
+                // Animation
+                asHair.Play("idle");
+                asHead.Play("idle");
+                asShirt.Play("idle");
+                asUndershirt.Play("idle");
+                asHands.Play("idle");
+                asLegs.Play("idle");
+                asShoes.Play("idle");
+            }
         }
     }
 }
