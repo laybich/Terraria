@@ -11,10 +11,10 @@ namespace Terraria.Npc
         public const float PLAYER_MOVE_SPEED_ACCELERATION = 0.2f;
 
         // Colors
-        public Color HairColor = new Color(255, 150, 0);
-        public Color BodyColor = new Color(255, 209, 186);
-        public Color ShirtColor = new Color(205, 255, 0);
-        public Color LegsColor = new Color(10, 76, 135);
+        public Color HairColor = new Color(0xd7, 90, 0x37);
+        public Color BodyColor = new Color(0xff, 0x7d, 90);
+        public Color ShirtColor = new Color(0xaf, 0xa5, 140);
+        public Color LegsColor = new Color(0xff, 230, 0xaf);
 
         // UI
         public UIInvertory Invertory;

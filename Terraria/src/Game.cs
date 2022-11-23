@@ -10,11 +10,13 @@ namespace Terraria
         public Player Player { get; private set; }
         List<NpcSlime> slimes = new List<NpcSlime>();
         World world;
-        Splash splash;
+        UISplash splash;
+        UIMenu menu;
 
         public Game()
         {
-            splash = new Splash();
+            splash = new UISplash();
+            menu = new UIMenu();
 
             world = new World();
             world.GenerateWorld();
@@ -35,14 +37,19 @@ namespace Terraria
 
             Player.Invertory = new UIInvertory();
             UIManager.AddControl(Player.Invertory);
+            UIManager.AddControl(menu);
             UIManager.AddControl(splash);
         }
 
         public void Update()
         {
-            if (Splash.ShowSplash)
+            if (UISplash.ShowSplash)
             {
                 splash.Update();
+            }
+            else if (UIMenu.MenuActive)
+            {
+                menu.Update();
             }
             else
             {
@@ -67,11 +74,13 @@ namespace Terraria
             foreach (var s in slimes)
                 Program.Window.Draw(s);
 
-            // Debug draw
-            DebugRender.Draw(Program.Window);
+            
 
             // Draw UI
             UIManager.Draw();
+
+            // Debug draw
+            DebugRender.Draw(Program.Window);
         }
     }
 }

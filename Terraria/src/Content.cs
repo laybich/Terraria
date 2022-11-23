@@ -7,6 +7,8 @@ namespace Terraria
         public const string CONTENT_DIR = "Content\\";
 
         // UI
+        public static Texture texLogo;
+        public static Texture texBackground;
         public static Texture texShplash;
         public static Texture texUIInvertoryBack;
         public static Font font;
@@ -31,8 +33,10 @@ namespace Terraria
         public static void Load()
         {
             // UI
-            texShplash = new Texture(CONTENT_DIR + "Textures\\splash.png");
-            texUIInvertoryBack = new Texture(CONTENT_DIR + "Textures\\ui\\Inventory_Back.png");
+            texLogo = new Texture(CONTENT_DIR + @"Textures\Logo.png");
+            texBackground = new Texture(CONTENT_DIR + @"Textures\Background_0.png");
+            texShplash = new Texture(CONTENT_DIR + @"Textures\splash.png");
+            texUIInvertoryBack = new Texture(CONTENT_DIR + @"Textures\ui\Inventory_Back.png");
 
             // Font
             font = new Font(CONTENT_DIR + "Fonts\\brushtype-normal.ttf");

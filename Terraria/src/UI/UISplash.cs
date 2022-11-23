@@ -1,16 +1,15 @@
 ﻿using SFML.Graphics;
 using SFML.System;
-using SFML.Window;
 
 namespace Terraria.UI
 {
-    class Splash : UIBase
+    class UISplash : UIBase
     {
         public static bool ShowSplash = true;
         private int splashCounter = 0;
         byte color = 0;
 
-        public Splash()
+        public UISplash()
         {
             rectShape = new RectangleShape(new Vector2f(Program.Window.Size.X, Program.Window.Size.Y));
             rectShape.Texture = Content.texShplash;
@@ -22,6 +21,8 @@ namespace Terraria.UI
 
         public override void Update()
         {
+            if (!ShowSplash) return;
+
             splashCounter++;
             if (splashCounter <= 0x4b) color = (byte)((float)splashCounter / 0x4bf * 0xfff);
             else if (splashCounter <= 200) color = 0xff;
